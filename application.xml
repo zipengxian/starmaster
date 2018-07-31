@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<!-- NMML reference: https://gist.github.com/1763850 -->
+	
+	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
+	<meta title="HxSpriter-master" package="HxSpritermaster" version="1.0.0" company="blaze" />
+	
+	<!-- output -->
+	<app title="mygame" file="mygame" main="Main" version="0.0.1" company="HaxeFlixel" />
+	
+	<window background="#000000" fps="60" />
+	<window width="800" height="600" unless="mobile" />
+	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
+	
+	<!-- classpath, haxe libs -->
+	<source path="Source" />
+	<haxelib name="openfl" />
+	<haxelib name="openfl-compatibility" />	
+	<haxelib name="flixel" />
+	<haxelib name="msignal" />
+	<haxelib name="flixel-addons" />
+	<haxelib name="flixel-ui" />
+	<haxelib name="tilelayer" />
+	<haxelib name="firetongue"/>
+	<haxelib name="task" />
+	<haxelib name="msignal" />
+	
+	<!-- assets -->
+	<icon path="assets/openfl.svg" />
+	<!--<assets path="assets/sprite" rename="sprites" />-->
+	<assets path="assets" />
+	<!--<assets path="assets/fonts/SIMSUN.TTC" type="font" id="simsun" />-->
+	<!--<assets path="flixel" />-->
+	<source path="Source" />
+	
+	<haxeflag name="--dead-code-elimination" unless="haxe3" />
+	<haxeflag name="-dce std" if="haxe3" />
+	<!-- optimize output
+	<haxeflag name="-dce full" /> -->
+	
+</project>

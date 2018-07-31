@@ -1,0 +1,51 @@
+ public class Light extends FlxSprite
+   { 
+      
+      private var darkness:FlxSprite;
+    
+      public function Light(x:Number, y:Number, darkness:FlxSprite):void 
+      {
+         super(x, y);      
+      makeGraphic(200,200, 0x00000000);
+        
+        this.darkness = darkness;
+        this.blend = "overlay"; 
+      }
+     
+      override public function draw():void 
+      {
+         darkness.fill(0xff000000);
+         this.fill(0x00000000);
+         super.draw();
+                
+      }
+	  
+	  override public function draw():void
+	{
+	   blend = "screen";
+	   darkness.stamp(this, this.getScreenXY().x, this.getScreenXY().y);
+	   blend = "overlay";
+	   super.draw();
+	}
+      
+   }
+
+		PlayState.as:
+
+            
+         DarknessSprite = new FlxSprite(0, 0);
+           DarknessSprite.makeGraphic(FlxG.width, FlxG.height, 0xff000000);
+         DarknessSprite.solid=false
+         DarknessSprite.scrollFactor.x = 0;
+         DarknessSprite.scrollFactor.y = 0;
+         DarknessSprite.blend = "multiply";
+         
+          var light:Light=new Light(200,250,DarknessSprite);         
+         add(DarknessSprite);
+         add(light);
+		 
+		 override public function draw():void
+{
+   darkness.fill(0xff000000);
+   super.draw();
+}
